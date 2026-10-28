@@ -1,0 +1,52 @@
+DAY 2 — DEVELOPMENT SUMMARY
+
+Date: 27 October 2026
+
+1. Database Schema Development
+Expanded the database structure to support the core appointment scheduling workflow using PostgreSQL and Drizzle ORM.
+- Defined and refined the users, patients, doctors, availability, and appointments tables.
+- Added relationships and foreign keys between users and their profiles.
+- Added role and appointment-status enums.
+- Added fields for doctor specialization and patient profile information.
+- Configured indexes and uniqueness constraints where needed.
+- Generated Drizzle migration files to apply schema changes to the database.
+
+2. Doctor and Admin Account Management
+Worked on the foundation of the doctor-management workflow.
+- Established the separation between general user accounts and doctor profiles.
+- Designed the workflow for administrators to create doctor accounts.
+- Worked on doctor registration and login behavior.
+- Added role-specific access and dashboard routing.
+- Established the structure needed to associate doctor profiles with their login accounts.
+Workflow objective: Doctor accounts should be created through an authorized administrative process rather than unrestricted public patient registration.
+
+3. Login and Redirect Improvements
+- Refined authentication checks for login pages and protected dashboards.
+- Worked on redirecting authenticated users to the correct dashboard based on their role.
+- Investigated the NEXT_REDIRECT warning appearing in the Next.js guest-route guard.
+- Reviewed the use of Suspense for components that read cookies and perform database operations when Cache Components are enabled.
+- Continued improving authentication behavior across patient, doctor, and admin portals.
+
+4. Admin Dashboard Foundation
+Developed the initial administrative dashboard structure.
+- Added dashboard navigation and shared header components.
+- Introduced dashboard sections for doctor management and user-related operations.
+- Created the foundation for displaying dashboard statistics.
+- Began implementing the interface for creating doctor accounts.
+
+5. Doctor Dashboard Foundation
+- Created the doctor dashboard layout and navigation.
+- Established the structure for managing doctor availability.
+- Prepared the dashboard for viewing appointments and patient information.
+- Connected the dashboard architecture to the role-based authentication system.
+
+6. Database Migration Workflow
+- Generated migration files with Drizzle Kit.
+- Reviewed the generated table and relationship definitions.
+- Continued aligning application queries with the evolving schema.
+- Identified database and query issues during dashboard development.
+
+7. Day 2 Outcome
+The second day focused on expanding the database schema and building the administrative and 
+doctor-facing foundations.  Work progressed toward managing doctor accounts, protecting role-specific pages, 
+and preparing the application for availability management and appointment scheduling.

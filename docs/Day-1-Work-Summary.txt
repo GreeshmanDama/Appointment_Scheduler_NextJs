@@ -1,0 +1,56 @@
+DAY 1 — DEVELOPMENT SUMMARY
+Date: 26 October 2026
+
+1. Project Overview
+Established the foundation of Medrella, a web-based clinic appointment scheduling system designed to connect patients, 
+doctors, and administrators through role-based dashboards and appointment management.
+The application is being developed using the Next.js App Router with TypeScript, PostgreSQL for relational data storage, 
+and Drizzle ORM for database queries and schema management.
+
+Technology stack
+- Frontend and backend: Next.js, React, TypeScript, Next.js Route Handlers
+- Database: PostgreSQL
+- ORM and migrations: Drizzle ORM and Drizzle Kit
+- Styling: Tailwind CSS
+- Icons: Lucide React
+- Authentication: JWT-based authentication and protected routes
+- Validation and security: Server-side input validation, password hashing, and role-based authorization
+The intended user roles are Patient, Doctor, and Admin.
+
+2. Database and Schema Foundation
+- Set up the PostgreSQL database connection.
+- Configured Drizzle ORM and Drizzle Kit.
+- Started defining relational database tables for users, patients, doctors, appointments, and availability.
+- Established relationships between users and their role-specific profiles.
+- Used database constraints and indexes to maintain data integrity.
+- Set up the migration workflow for applying schema changes to PostgreSQL.
+
+3. Authentication Foundation
+Implemented and established the core authentication workflow:
+- Registration and login flows.
+- Input validation for user credentials.
+- Password hashing and password verification using bcrypt.
+- JWT-based authentication.
+- User identification and session validation.
+- Role-based access for patient, doctor, and admin portals.
+- Authentication helpers for retrieving the current user.
+- Protected pages and API endpoints to prevent unauthorized access.
+
+4. Authentication and Authorization
+- Established role-specific dashboard routes.
+- Added authentication checks for protected pages.
+- Worked on redirecting authenticated users away from guest-only login pages.
+- Ensured that doctor and admin access follows the intended authorization rules.
+- Identified and debugged Next.js redirect behavior involving NEXT_REDIRECT and the guest route guard.
+
+5. Frontend Foundation
+- Set up the Next.js application structure and shared components.
+- Established a consistent UI using Tailwind CSS and Lucide icons.
+- Started building login and registration interfaces.
+- Created the initial patient dashboard layout.
+- Added navigation patterns for the patient, doctor, and admin sections.
+
+6. Day 1 Outcome
+The first day focused on establishing the application's architecture, database foundation, authentication flow, 
+and role-based navigation. The project was structured to support future appointment scheduling, doctor management, 
+patient profiles, and administrative operations.

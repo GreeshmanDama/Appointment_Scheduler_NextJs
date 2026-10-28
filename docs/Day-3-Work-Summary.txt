@@ -1,0 +1,74 @@
+DAY 3 — DEVELOPMENT SUMMARY
+
+Date: 28 October 2026
+
+1. Patient Profile Management
+Developed the patient profile management workflow.
+- Implemented the foundation for retrieving patient information from the database.
+- Added editable personal information fields, including name, email, and phone number.
+- Included emergency contact name and phone number.
+- Added profile edit, cancel, and save interactions.
+- Added form validation and API error handling.
+- Connected profile updates to the relevant user and patient records.
+- Addressed the need to reset email verification when a patient's email address changes.
+
+2. Email Verification with OTP
+Implemented the foundation of an email verification workflow using Resend.
+- Integrated the Resend email service.
+- Generated six-digit one-time passwords (OTPs).
+- Hashed OTPs before storing them in the database.
+- Added an expiration time for verification codes.
+- Implemented OTP verification and attempt tracking.
+- Updated patient verification status after successful verification.
+- Cleared OTP-related fields after successful verification.
+- Added a patient verification page with code submission and feedback.
+Security improvements identified for production include resend cooldowns, request rate limiting, and protection against concurrent verification attempts.
+
+3. Doctor Availability and Appointment Scheduling
+Continued development of the scheduling workflow.
+- Established the availability model for storing doctor availability slots.
+- Worked on doctor availability management interfaces.
+- Structured appointments around patient, doctor, and availability relationships.
+- Used appointment statuses to support the appointment lifecycle.
+- Prepared the system to display appointment dates, times, and statuses.
+The scheduling workflow is intended to allow patients to select available slots and view their appointments while doctors manage availability and review bookings.
+
+4. Doctor Patient Management
+Developed the doctor-facing patient listing functionality.
+- Implemented the API foundation for retrieving appointments associated with the authenticated doctor.
+- Joined appointment records with patient and doctor information.
+- Included patient name, email, and phone number.
+- Added emergency contact information to the patient data returned by the API.
+- Scoped appointment retrieval to the logged-in doctor's profile.
+- Built the patient listing interface with search and appointment-status filters.
+- Added appointment summaries and date/time formatting.
+
+5. Automatic Appointment Completion
+Developed a scheduled API endpoint for automatically completing appointments.
+- Added authorization using a cron secret.
+- Used the Asia/Kolkata time zone to evaluate appointment timing.
+- Retrieved confirmed appointments and their associated availability slots.
+- Compared appointment dates and end times against the current time.
+- Updated eligible appointments from confirmed to completed.
+- Added a completion count to the API response.
+- Considered a scheduler for executing the endpoint automatically in production.
+The endpoint must be called by a scheduler to run automatically; creating the route alone does not schedule execution.
+
+6. Dashboard and API Improvements
+- Continued integrating dashboard pages with backend APIs.
+- Worked on dashboard statistics and appointment retrieval.
+- Investigated Drizzle ORM query errors encountered while fetching patient data.
+- Reviewed the relationship between selected database fields, joins, and the returned API structure.
+- Continued aligning frontend TypeScript interfaces with API response data.
+
+7. Security and Reliability
+- Maintained role-based authorization for protected operations.
+- Added or refined server-side validation for profile updates and OTP verification.
+- Ensured doctor appointment queries are scoped to the authenticated doctor.
+- Reviewed handling of expired verification codes and invalid OTP attempts.
+- Identified the need for reliable database constraints and production scheduling configuration.
+
+8. Day 3 Outcome
+The third day focused on patient profile management, email verification, doctor-facing patient information, 
+and appointment lifecycle automation. The work expanded Medrella beyond its authentication foundation toward a 
+functional clinic scheduling application.
