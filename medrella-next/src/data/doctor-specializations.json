@@ -1,0 +1,153 @@
+
+{
+  "Family Medicine": {
+    "title": "Family Medicine",
+    "description": "Provides general healthcare for people of all ages, from children to older adults.",
+    "conditions": ["Common infections", "Minor injuries", "Diabetes", "High blood pressure"],
+    "whenToVisit": "For routine checkups, preventive care, and common health concerns."
+  },
+  "Internal Medicine": {
+    "title": "Internal Medicine",
+    "description": "Focuses on preventing, diagnosing, and treating medical conditions in adults.",
+    "conditions": ["Chronic diseases", "Multiple medical conditions", "High blood pressure", "Metabolic disorders"],
+    "whenToVisit": "For adult healthcare, complex medical problems, and chronic disease management."
+  },
+  "Pediatrics": {
+    "title": "Pediatrics",
+    "description": "Provides healthcare for babies, children, and teenagers.",
+    "conditions": ["Childhood infections", "Growth concerns", "Vaccinations", "Developmental concerns"],
+    "whenToVisit": "For childhood illnesses, growth monitoring, and routine child checkups."
+  },
+  "Cardiology": {
+    "title": "Cardiology",
+    "description": "Specializes in the heart and blood vessels.",
+    "conditions": ["Heart disease", "High blood pressure", "Heart rhythm problems", "Heart failure"],
+    "whenToVisit": "For heart-related symptoms or evaluation of cardiovascular conditions."
+  },
+  "Dermatology": {
+    "title": "Dermatology",
+    "description": "Diagnoses and treats conditions affecting the skin, hair, and nails.",
+    "conditions": ["Acne", "Eczema", "Psoriasis", "Skin infections"],
+    "whenToVisit": "For persistent skin problems, hair loss, nail disorders, or changing skin lesions."
+  },
+  "Orthopedics": {
+    "title": "Orthopedics",
+    "description": "Treats problems involving bones, joints, muscles, and ligaments.",
+    "conditions": ["Fractures", "Joint pain", "Arthritis", "Sports injuries"],
+    "whenToVisit": "For musculoskeletal pain, injuries, or difficulty moving a joint."
+  },
+  "Neurology": {
+    "title": "Neurology",
+    "description": "Focuses on diseases of the brain, spinal cord, and nerves.",
+    "conditions": ["Migraine", "Epilepsy", "Parkinson's disease", "Nerve disorders"],
+    "whenToVisit": "For recurring neurological symptoms, seizures, or persistent nerve-related problems."
+  },
+  "Gastroenterology": {
+    "title": "Gastroenterology",
+    "description": "Treats disorders of the digestive system, including the stomach, intestines, and liver.",
+    "conditions": ["Acid reflux", "Digestive disorders", "Inflammatory bowel disease", "Liver disease"],
+    "whenToVisit": "For persistent digestive symptoms or diagnosed digestive system disorders."
+  },
+  "Pulmonology": {
+    "title": "Pulmonology",
+    "description": "Specializes in diseases affecting the lungs and breathing passages.",
+    "conditions": ["Asthma", "COPD", "Chronic breathing problems", "Sleep apnea"],
+    "whenToVisit": "For persistent breathing difficulties or ongoing lung conditions."
+  },
+  "Endocrinology": {
+    "title": "Endocrinology",
+    "description": "Treats hormone-related disorders and diseases of hormone-producing glands.",
+    "conditions": ["Diabetes", "Thyroid disorders", "Hormonal imbalances", "Adrenal disorders"],
+    "whenToVisit": "For complex hormone problems or diabetes that needs specialist management."
+  },
+  "Nephrology": {
+    "title": "Nephrology",
+    "description": "Focuses on kidney diseases and the body's fluid and electrolyte balance.",
+    "conditions": ["Chronic kidney disease", "Kidney-related hypertension", "Electrolyte disorders", "Kidney failure"],
+    "whenToVisit": "For diagnosed kidney disease or persistent abnormalities in kidney function."
+  },
+  "Rheumatology": {
+    "title": "Rheumatology",
+    "description": "Treats inflammatory and autoimmune conditions affecting joints and connective tissues.",
+    "conditions": ["Rheumatoid arthritis", "Lupus", "Gout", "Inflammatory joint disease"],
+    "whenToVisit": "For persistent joint swelling, inflammatory pain, or suspected autoimmune conditions."
+  },
+  "Oncology": {
+    "title": "Oncology",
+    "description": "Specializes in diagnosing and treating cancer.",
+    "conditions": ["Cancer diagnosis", "Cancer treatment planning", "Chemotherapy", "Cancer follow-up"],
+    "whenToVisit": "For specialist evaluation after a suspected or confirmed cancer diagnosis."
+  },
+  "Hematology": {
+    "title": "Hematology",
+    "description": "Focuses on diseases of the blood and blood-forming organs.",
+    "conditions": ["Anemia", "Bleeding disorders", "Blood clotting disorders", "Blood cancers"],
+    "whenToVisit": "For complex blood disorders or abnormal blood test results requiring specialist assessment."
+  },
+  "General Surgery": {
+    "title": "General Surgery",
+    "description": "Provides surgical care for a range of conditions affecting the abdomen and soft tissues.",
+    "conditions": ["Hernias", "Appendicitis", "Gallbladder disease", "Certain tumors"],
+    "whenToVisit": "When a clinician recommends surgical evaluation or a condition may require an operation."
+  },
+  "Neurosurgery": {
+    "title": "Neurosurgery",
+    "description": "Provides surgical treatment for conditions affecting the brain, spine, and nervous system.",
+    "conditions": ["Certain brain tumors", "Spinal disorders", "Nerve compression", "Selected brain injuries"],
+    "whenToVisit": "When a specialist recommends evaluation for a condition that may require neurosurgery."
+  },
+  "Urology": {
+    "title": "Urology",
+    "description": "Treats disorders of the urinary tract and male reproductive system.",
+    "conditions": ["Kidney stones", "Urinary problems", "Prostate disorders", "Urological cancers"],
+    "whenToVisit": "For persistent urinary symptoms, prostate problems, or diagnosed urological conditions."
+  },
+  "Ophthalmology": {
+    "title": "Ophthalmology",
+    "description": "Provides medical and surgical care for the eyes and vision.",
+    "conditions": ["Cataracts", "Glaucoma", "Eye infections", "Retinal disorders"],
+    "whenToVisit": "For ongoing eye problems, changes in vision, or eye disease management."
+  },
+  "ENT": {
+    "title": "Ear, Nose and Throat (ENT)",
+    "description": "Treats conditions affecting the ears, nose, throat, and related head and neck structures.",
+    "conditions": ["Sinusitis", "Ear infections", "Hearing problems", "Tonsil disorders"],
+    "whenToVisit": "For persistent ear, nose, throat, or hearing problems."
+  },
+  "Psychiatry": {
+    "title": "Psychiatry",
+    "description": "Provides medical assessment and treatment for mental health conditions.",
+    "conditions": ["Depression", "Anxiety disorders", "Bipolar disorder", "Sleep-related mental health concerns"],
+    "whenToVisit": "For mental health concerns that may benefit from medical assessment or treatment."
+  },
+  "Psychology": {
+    "title": "Psychology",
+    "description": "Focuses on emotional wellbeing, behavior, and psychological assessment and therapy.",
+    "conditions": ["Stress", "Anxiety", "Depression", "Relationship difficulties"],
+    "whenToVisit": "For emotional difficulties, coping strategies, or psychological therapy."
+  },
+  "Gynecology": {
+    "title": "Gynecology",
+    "description": "Focuses on reproductive and menstrual health.",
+    "conditions": ["Menstrual problems", "PCOS", "Endometriosis", "Menopause symptoms"],
+    "whenToVisit": "For menstrual concerns, reproductive health, or routine gynecological care."
+  },
+  "Obstetrics": {
+    "title": "Obstetrics",
+    "description": "Provides medical care during pregnancy, childbirth, and the period after delivery.",
+    "conditions": ["Pregnancy monitoring", "Prenatal care", "Pregnancy complications", "Postpartum concerns"],
+    "whenToVisit": "For pregnancy-related care and follow-up during and after pregnancy."
+  },
+  "Geriatrics": {
+    "title": "Geriatrics",
+    "description": "Focuses on the health needs of older adults.",
+    "conditions": ["Multiple chronic conditions", "Medication management", "Memory concerns", "Mobility difficulties"],
+    "whenToVisit": "For complex healthcare needs associated with aging."
+  },
+  "Radiology": {
+    "title": "Radiology",
+    "description": "Uses medical imaging to help diagnose and sometimes treat diseases.",
+    "conditions": ["Imaging assessment", "X-rays", "CT scans", "MRI and ultrasound examinations"],
+    "whenToVisit": "When a clinician recommends imaging or image-guided diagnostic procedures."
+  }
+}

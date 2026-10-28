@@ -1,0 +1,1 @@
+ALTER TABLE "patients" ALTER COLUMN "is_verified" SET DEFAULT false;
