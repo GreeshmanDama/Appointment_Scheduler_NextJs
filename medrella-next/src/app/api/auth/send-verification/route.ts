@@ -1,13 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createHash, randomInt } from "node:crypto";
 import { eq } from "drizzle-orm";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 import { db } from "@/db";
 import { users, patients } from "@/db/schema";
 import { getSession } from "@/lib/auth/session";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -45,10 +53,10 @@ export async function POST(request: NextRequest) {
     }
 
     const secret = process.env.EMAIL_VERIFICATION_SECRET;
-    const apiKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.RESEND_FROM_EMAIL;
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
 
-    if (!secret || !apiKey || !fromEmail) {
+    if (!secret || !smtpUser || !smtpPass) {
       console.error("Missing email verification environment variables.");
 
       return NextResponse.json(
@@ -74,35 +82,41 @@ export async function POST(request: NextRequest) {
         updatedAt: new Date(),
       })
       .where(eq(patients.userId, session.userId));
-      
-    const { data, error } = await resend.emails.send({
-      from: fromEmail,
-      to: [profile.email],
-      subject: "Your Medrella verification code",
-      text: [
-        `Hello ${profile.name},`,
-        "",
-        `Your Medrella verification code is: ${otp}`,
-        "",
-        "This code expires in 10 minutes.",
-        "Do not share this code with anyone.",
-      ].join("\n"),
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 560px; margin: auto;">
-          <h2>Verify your Medrella account</h2>
-          <p>Hello ${escapeHtml(profile.name)},</p>
-          <p>Use the following code to verify your email address:</p>
-          <div style="padding: 20px; background: #f1f5f9; text-align: center; border-radius: 8px;">
-            <h1 style="letter-spacing: 8px; margin: 0;">${otp}</h1>
-          </div>
-          <p>This code expires in <strong>10 minutes</strong>.</p>
-          <p>Do not share this code with anyone.</p>
-          <p>If you did not request this code, you can ignore this email.</p>
-        </div>
-      `,
-    });
 
-    if (error) {
+    try {
+      await transporter.sendMail({
+        from: {
+          name: "Medrella",
+          address: smtpUser,
+        },
+        to: profile.email,
+        subject: "Your Medrella verification code",
+        text: [
+          `Hello ${profile.name},`,
+          "",
+          `Your Medrella verification code is: ${otp}`,
+          "",
+          "This code expires in 10 minutes.",
+          "Do not share this code with anyone.",
+          "",
+          "If you did not request this code, you can ignore this email.",
+        ].join("\n"),
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 560px; margin: auto;">
+            <h2>Verify your Medrella account</h2>
+            <p>Hello ${escapeHtml(profile.name)},</p>
+            <p>Use the following code to verify your email address:</p>
+            <div style="padding: 20px; background: #f1f5f9; text-align: center; border-radius: 8px;">
+              <h1 style="letter-spacing: 8px; margin: 0;">${otp}</h1>
+            </div>
+            <p>This code expires in <strong>10 minutes</strong>.</p>
+            <p>Do not share this code with anyone.</p>
+            <p>If you did not request this code, you can ignore this email.</p>
+          </div>
+        `,
+      });
+    } catch (emailError) {
+      // Invalidate the OTP if Gmail fails to send the email.
       await db
         .update(patients)
         .set({
@@ -113,7 +127,7 @@ export async function POST(request: NextRequest) {
         })
         .where(eq(patients.userId, session.userId));
 
-      console.error("Resend email error:", error);
+      console.error("Gmail SMTP email error:", emailError);
 
       return NextResponse.json(
         { error: "Unable to send OTP. Please try again." },
